@@ -13,7 +13,11 @@ import cn.panda.exception.DaoException;
 import cn.panda.utils.JdbcUtils;
 
 public class UserDaoImpl implements UserDao {
-
+	
+	
+	/**
+	 * 添加用户
+	 */
 	@Override
 	public void addUser(User user) {
 		Connection conn = null;
@@ -36,7 +40,10 @@ public class UserDaoImpl implements UserDao {
 			JdbcUtils.release(conn, st, rs);
 		}
 	}
-
+	
+	/**
+	 * 删除用户
+	 */
 	@Override
 	public void deleteUser(String id) {
 		Connection conn = null;
@@ -54,7 +61,10 @@ public class UserDaoImpl implements UserDao {
 			JdbcUtils.release(conn, st, rs);
 		}
 	}
-
+	
+	/**
+	 * 修改用户
+	 */
 	@Override
 	public void updateUser(User user) {
 		Connection conn = null;
@@ -75,7 +85,11 @@ public class UserDaoImpl implements UserDao {
 			JdbcUtils.release(conn, st, rs);
 		}
 	}
-
+	
+	
+	/**
+	 * 根据id查找用户
+	 */
 	@Override
 	public User findUser(String id) {
 		Connection conn = null;
@@ -106,7 +120,46 @@ public class UserDaoImpl implements UserDao {
 			JdbcUtils.release(conn, st, rs);
 		}
 	}
-
+	
+	/**
+	 * 根据loginName查找用户
+	 * 功能：防止loginName重复注册
+	 */
+	@Override
+	public User findUserByLoginName(String loginName) {
+		Connection conn = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "select * from crm_user where user_loginName =?";
+			st = conn.prepareStatement(sql);
+			st.setString(1, loginName);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				User user = new User();
+				user.setId(rs.getString("user_id"));
+				user.setEmail(rs.getString("user_email"));
+				user.setLoginName(loginName);
+				user.setName(rs.getString("user_name"));
+				user.setPassword(rs.getString("user_password"));
+				user.setRegisterDate(rs.getTimestamp("user_registerDate"));
+				return user;
+			}else{
+				System.out.println("loginName未找到，用户可以以此登录名注册");
+				return null;
+			}
+		} catch (Exception e) {
+			throw new DaoException(e);
+		} finally {
+			JdbcUtils.release(conn, st, rs);
+		}
+	}
+	
+	
+	/**
+	 * 列出所有用户
+	 */
 	@Override
 	public List<User> listUser() {		//获取所有用户 startindex是起始查询处 itemPerPageNum是每页显示多少
 		Connection conn = null;
@@ -136,6 +189,10 @@ public class UserDaoImpl implements UserDao {
 			}
 	}
 	
+	
+	/**
+	 * 用户登录时验证用户名和密码
+	 */
 	public User login(String loginName,String password){
 		Connection conn = null;
 		PreparedStatement st = null;

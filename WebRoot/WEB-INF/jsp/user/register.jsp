@@ -21,7 +21,6 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
 </head>
 
 <body style="background-color:#B2DFDB;text-align: center;">
@@ -40,12 +39,12 @@
 				style="font-family:Microsoft YaHei;font-size: 25px;text-align: center;margin: auto;">
 				<tr>
 					<td style="color: #212121;">登录名：</td>
-					<td><input type="text" name="loginName" /></td>
+					<td><input type="text" name="loginName" "/></td>
 				</tr>
 				<tr>
 				<tr>
 					<td style="color: #212121;">密码：</td>
-					<td><input type="password" name="password" /></td>
+					<td><input type="password" name="password"  /></td>
 				</tr>
 				<tr>
 					<td style="color: #212121;">姓名：</td>

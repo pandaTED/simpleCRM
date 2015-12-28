@@ -18,4 +18,6 @@ public interface UserDao {
 	List<User> listUser();
 	//验证用户名和密码
 	 User login(String loginName,String password);
+	 //查  //注册时登录名去重
+	User findUserByLoginName(String loginName);
 }	

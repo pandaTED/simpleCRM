@@ -48,7 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <div class="myDiv">  
     <p> ${register_null}
    		${register_success}
-    	${register_unkonw}</p>  
+    	${register_unkonw}
+    	${register_loginNameExist}</p>  
         <div id="div1"></div>  
     </div>  
   </body>

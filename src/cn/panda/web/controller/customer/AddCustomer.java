@@ -22,7 +22,6 @@ public class AddCustomer extends HttpServlet {
 			throws ServletException, IOException {
 		request.setAttribute("genders", Globals.genders);
 		request.setAttribute("types", Globals.types);
-		System.out.println("执行了");
 		// 跳转到视图
 		request.getRequestDispatcher("/WEB-INF/jsp/customer/addcustomer.jsp").forward(
 				request, response);

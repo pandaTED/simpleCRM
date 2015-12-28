@@ -5,8 +5,7 @@
 <head>
 <title>simpleCRM-添加客户</title>
 <%@ include file="/head.jsp"%>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/ShowCalendar.js"></script>
+<script src="${pageContext.request.contextPath }/js/ShowCalendar.js"></script>
 </head>
 
 <body style="background-color:#BBDEFB;font-family:Microsoft YaHei;">
@@ -25,8 +24,11 @@
 			</tr>
 			<tr>
 				<td>客户生日</td>
-				<td><input type="text" name="birthday"
-					onClick="showCalendar(this.id)" id="birthday"></td>
+				<td>
+			 <input type="text" name="birthday"
+					onClick="showCalendar(this.id)" id="birthday">
+
+				</td>
 			</tr>
 			<tr>
 				<td>客户手机</td>
