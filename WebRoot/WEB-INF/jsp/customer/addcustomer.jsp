@@ -47,7 +47,7 @@
 			</tr>
 			<tr>
 				<td>客户备注</td>
-				<td><textarea rows="5" cols="60" name="description"></textarea>
+				<td><textarea style="font-family:Microsoft YaHei;font-size: 20px; rows="5" cols="60" name="description"></textarea>
 				</td>
 			</tr>
 			<tr>

@@ -1,6 +1,7 @@
 package cn.panda.web.controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,17 +17,32 @@ import cn.panda.domain.User.User;
  * Servlet implementation class UserRegister
  */
 @WebServlet("/userRegister")
-public class UserRegister extends HttpServlet {
+public class UserRegister extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-   
+	UserDao ud = new UserDaoImpl();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+		PrintWriter out = response.getWriter();	
+		try{
+		String loginName = request.getParameter("loginName");
+		if(loginName!=null && !loginName.equals("")){
+			User user = ud.findUserByLoginName(loginName);
+			if(user==null){
+				out.println("登录名：["+loginName+"]没人使用，可以注册！");
+			}else{
+				out.println("登录名：["+loginName+"]已经被注册，再想一个吧！");	
+			}
+			}else{
+			out.println("登录名不能为空！");	
+		}
 		
-	}
+		}finally{
+			out.close();
+		}
+}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDao ud = new UserDaoImpl();
+		
 		String loginName = request.getParameter("loginName");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");

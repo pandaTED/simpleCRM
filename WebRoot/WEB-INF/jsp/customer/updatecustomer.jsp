@@ -48,8 +48,7 @@
 			</tr>
 			<tr>
 				<td>客户备注</td>
-				<td><textarea rows="5" cols="60" name="description"> ${customer.description}
-			</textarea></td>
+				<td><textarea style="font-family:Microsoft YaHei;font-size: 20px;" rows="5" cols="60" name="description">${customer.description}</textarea></td>
 			</tr>
 			<tr>
 				<td><input type="reset" value="重置" /></td>

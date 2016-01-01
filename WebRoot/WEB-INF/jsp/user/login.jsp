@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript">
 			function go(){	
-			window.location="${pageContext.request.contextPath}/userRegister";
+			window.location="${pageContext.request.contextPath}/userRegisterUI";
 			}
 	</script>
 
