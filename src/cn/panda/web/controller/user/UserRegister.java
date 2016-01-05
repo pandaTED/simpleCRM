@@ -28,12 +28,12 @@ public class UserRegister extends HttpServlet{
 		if(loginName!=null && !loginName.equals("")){
 			User user = ud.findUserByLoginName(loginName);
 			if(user==null){
-				out.println("登录名：["+loginName+"]没人使用，可以注册！");
+				out.println("<font color='green'>"+loginName+" 没人使用，可以注册！</font>");
 			}else{
-				out.println("登录名：["+loginName+"]已经被注册，再想一个吧！");	
+				out.println("<font color='red'>"+loginName+" 已经被注册，再想一个吧！</font>");	
 			}
 			}else{
-			out.println("登录名不能为空！");	
+			out.println("<font color='blue'>登录名不能为空！</font>");	
 		}
 		
 		}finally{
