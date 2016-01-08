@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+body{
+		background-color:#C5CAE9;
+		text-align: center;
+		height: 90%;
+		}
+	
+		div.header,div.body{
+		font-family:Microsoft YaHei;"
+		}
+		
+		h1.title{
+		font-size: 60px;	
+		}
+		
+		h1.slogan{
+		font-size: 20px;	
+		}
+		
+		table{
+		margin:auto;
+		text-align: center;
+		font-size: 30px;
+		}
+
+		div.body{
+		margin-top:15%;
+		}
+		
+		div.header{
+		margin-top:1%;
+		}
