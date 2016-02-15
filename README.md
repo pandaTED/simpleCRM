@@ -16,3 +16,4 @@
 	2.利用servlet的filter功能，设置全局的request编码为utf-8
 ##部署时请注意
 	请在c3p0-config.xml内设置自己的数据库信息
+	cn/panda/sql内是创建数据库表的sql语句，请按照user-->customer的顺序创建表
